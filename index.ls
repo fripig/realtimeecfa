@@ -1,4 +1,4 @@
-main = ($scope,$http)->
+mainCtrl = ($scope,$http)->
     $scope.data=[]
 
     $scope.update = !->
