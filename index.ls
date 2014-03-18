@@ -1,5 +1,8 @@
-$ ->
-    update = !->
-        $.getJSON "http://ecfa.speaking.tw/json.php", (json)->
+main = ($scope,$http)->
+    $scope.data=[]
+
+    $scope.update = !->
+        $http.get "http://ecfa.speaking.tw/json.php", (json)->
             console.log json
-    setinterval update,10000
+            $scope.data = json
+    $interval $scope.update,10000
