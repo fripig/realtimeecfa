@@ -2,10 +2,11 @@
 (function(){
   $(function(){
     var update;
-    return update = function(){
+    update = function(){
       $.getJSON("http://ecfa.speaking.tw/json.php", function(json){
         return console.log(json);
       });
     };
+    return setinterval(update, 10000);
   });
 }).call(this);
