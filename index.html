@@ -32,9 +32,19 @@
 <th>圖說</th>
 <th>連結</th>
 <th>評論</th>
-</tr><tr><td>02:29</td><td><a href=https://www.facebook.com/profile.php?id=100001534641220 alt='http://graph.facebook.com/100001534641220/name'><img src=http://graph.facebook.com/100001534641220/picture></a></td><td><img src=https://fbexternal-a.akamaihd.net/safe_image.php?d=AQAHWlyg3rwu-KE6&w=130&h=130&url=http%3A%2F%2Fi1.ytimg.com%2Fvi%2FcYV6os906Xo%2Fhqdefault.jpg height=100 width=100 ></td><td><a href=http://m.youtube.com/watch?v=cYV6os906Xo&feature=share >服貿懶人包</td><td><a href=http://www.facebook.com/100001534641220/posts/69127811093333 >台灣加油！
-雖然肚子餓 但黑心食物不能吃
-雖然經濟爛 但黑箱作業不能過</a></td></tr>
+</tr>
+<tr ng-repeat="row in  data">
+  <td>{{data.created_time}}</td>
+  <td>
+    <a ng-href="https://www.facebook.com/profile.php?id={{row.facebook_id}}" alt='http://graph.facebook.com/{{row.facebook_id}}/name'>
+      <img ng-src="http://graph.facebook.com/{{row.facebook_id}}/picture"></a>
+  </td>
+  <td>
+    <img ng-src="{{row.picture}}" height=100 width=100 >
+  </td>
+  <td><a ng-href="{{row.link}}" >{{row.title}}</td>
+  <td><a ng-href="{{row.link}}" >{{row.message}}</a></td>
+</tr>
 </table>
 </body>
 </html>
