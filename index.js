@@ -2,7 +2,7 @@
 var mainCtrl;
 mainCtrl = function($scope, $http, $timeout){
   $scope.data = [];
-  return $scope.update = function(){
+  $scope.update = function(){
     $http.get("http://ecfa.speaking.tw/json.php").success(function(json){
       var key;
       for (key in json) {
@@ -11,4 +11,5 @@ mainCtrl = function($scope, $http, $timeout){
       return $timeout($scope.update, 5000);
     });
   };
+  $scope.update();
 };
