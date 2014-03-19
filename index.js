@@ -2,15 +2,13 @@
 var mainCtrl;
 mainCtrl = function($scope, $http, $timeout){
   $scope.data = [];
-  $scope.update = function(){
-    $http.get("http://ecfa.speaking.tw/json.php", function(json){
-      console.log(json);
-      for(key of json)
-      {
+  return $scope.update = function(){
+    $http.get("http://ecfa.speaking.tw/json.php").success(function(json){
+      var key;
+      for (key in json) {
         $scope.data.unshift(json[key]);
       }
-      $timeout($scope.update,5000);
+      return $timeout($scope.update, 5000);
     });
   };
-  $scope.update();
 };
